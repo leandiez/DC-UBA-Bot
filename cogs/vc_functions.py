@@ -48,22 +48,6 @@ class VcFunctions(commands.Cog):
     async def free_channels_list(self, channels: list[discord.VoiceChannel]) -> list[discord.VoiceChannel]:
         return [channel for channel in channels if len(channel.members) == 0]
 
-    async def all_channels_occupied(self, channels: list[discord.VoiceChannel]) -> bool:
-        for channel in channels:
-            if len(channel.members) == 0:
-                return False
-        
-        return True
-
-    async def free_channels_list(self, channels: list[discord.VoiceChannel]) -> list[discord.VoiceChannel]:
-        free_channels = []
-
-        for channel in channels:
-            if len(channel.members) == 0:
-                free_channels.append(channel)
-        
-        return free_channels
-
 async def setup(client: commands.Bot) -> None:
     await client.add_cog(VcFunctions(client), guilds=[
             discord.Object(id=770698123915165747)
