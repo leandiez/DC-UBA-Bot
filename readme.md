@@ -1,9 +1,11 @@
 # Como correr el bot
 
-- Crear un archivo .env en la carpeta principal y pegar lo siguiente: 
-    # BOT SETUP
+- Crear un archivo .env en la carpeta principal y pegar lo siguiente:
+
     TOKEN="TOKEN DEL BOT"
+    
     BOT_ID="ID DEL BOT"
+    
     CATEGORY_ID="ID DE LA CATEGORIA PARA LA FUNCION DE CREAR/BORRAR CANALES DE VOZ"
 - Completar las cosas requeridas en el archivo .env
 - Instalar python (desde la version 3.8 a la 3.12)
