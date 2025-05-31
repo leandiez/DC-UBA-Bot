@@ -15,7 +15,7 @@ class client(commands.Bot):
     def __init__(self):
         super().__init__(
             command_prefix=".",
-            intents=discord.Intents.all(),
+            intents=discord.Intents.default(),
             application_id=os.getenv("BOT_ID"),
         )
         self.synced = False
@@ -29,7 +29,7 @@ class client(commands.Bot):
         for cog in target_dir.rglob("*.py"):
             await self.load_extension(f"cogs.{cog.stem}")
 
-        await cltree.sync(guild=discord.Object(770698123915165747))
+        await cltree.sync()
 
         self.synced = True
 

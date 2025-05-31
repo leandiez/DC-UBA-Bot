@@ -9,13 +9,14 @@ from dotenv import load_dotenv
 class VcFunctions(commands.Cog):
     def __init__(self, client: commands.Bot) -> None:
         self.client = client
-        self.category_id = int(os.getenv("CATEGORY_ID"))
+        #self.category_id = int(os.getenv("CATEGORY_ID"))
 
     @commands.Cog.listener()
     async def on_voice_state_update(self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
         if after.channel is not None:  # Si el usuario entra a un canal
             category = after.channel.category
-            if category and category.id == self.category_id:
+            #if category and category.id == self.category_id:
+            if category:
                 all_occupied = await self.all_channels_occupied(category.voice_channels)
                 
                 if all_occupied:
@@ -49,7 +50,5 @@ class VcFunctions(commands.Cog):
         return [channel for channel in channels if len(channel.members) == 0]
 
 async def setup(client: commands.Bot) -> None:
-    await client.add_cog(VcFunctions(client), guilds=[
-            discord.Object(id=770698123915165747)
-        ],)
+    await client.add_cog(VcFunctions(client))
     print(f"Module vc_functions.py was loaded succesfully.")

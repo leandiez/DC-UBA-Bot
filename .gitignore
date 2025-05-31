@@ -168,8 +168,11 @@ cython_debug/
 #.idea/
 
 # PyPI configuration file
-<<<<<<< HEAD
 .pypirc
-=======
-.pypirc
->>>>>>> 5973c9e10fdbbb780cf7cb7c97120b6c0227fd78
+
+# Ignorar virtual environments
+Scripts/*
+pyvenv.cfg
+
+# Configuracion de .vscode
+.vscode/*
