@@ -11,6 +11,39 @@ class VcFunctions(commands.Cog):
         self.client = client
         #self.category_id = int(os.getenv("CATEGORY_ID"))
 
+    @commands.command()
+    async def get_voice_configuration(self, ctx):
+        # TODO devuelve toda la configuracion de voz
+        print("OK")
+        return
+
+    @commands.command()
+    async def enable_voice_creator(self, ctx):
+        # TODO habilita la funcion del bot para que cree canales nuevos dentro de una category seteada.
+        # PRE - tener seteada una o varias categories donde escuchar, caso contrario devuelve mensaje pidiendo configurar con otro comando
+        # POST - setea bool de configuracion a true para indicar que la funcion esta activa
+        return
+    
+    @commands.command()
+    async def disable_voice_creator(self, ctx):
+        # TODO deshabilita la funcion del bot para que cree canales nuevos dentro de una category seteada.
+        # PRE - true
+        # POST - setea bool de configuracion a false para indicar que la funcion esta apagada
+        return
+
+    @commands.command()
+    async def setup_new_voice_category(self, ctx, category: int):
+        # PRE - recibe la categoria por parametro del comando
+        # TODO / POST - guarda el ID de la categoria a agregarle al BOT en una lista dentro de la DB (Mongo?)
+        return
+    
+    @commands.command()
+    async def setup_delete_voice_category(ctx, category: int):
+        # PRE - recibe la categoria por parametro del comando
+        # TODO / POST - borra el ID de la categoria a agregarle al BOT en una lista dentro de la DB (Mongo?)
+        return
+
+
     @commands.Cog.listener()
     async def on_voice_state_update(self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
         if after.channel is not None:  # Si el usuario entra a un canal

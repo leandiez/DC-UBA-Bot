@@ -13,9 +13,11 @@ from pathlib import Path
 
 class client(commands.Bot):
     def __init__(self):
+        customIntents=discord.Intents.default()
+        customIntents.message_content=True # Acceso a contenido de mensajes es obligatorio
         super().__init__(
             command_prefix=".",
-            intents=discord.Intents.default(),
+            intents=customIntents,
             application_id=os.getenv("BOT_ID"),
         )
         self.synced = False
