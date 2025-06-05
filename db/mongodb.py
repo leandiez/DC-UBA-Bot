@@ -57,25 +57,4 @@ class MongoHandler:
             "name": voice_channel.name,
             "id": voice_channel.id
         }) is not None
-
-# TEST
-
-# FakeGuild = namedtuple("FakeGuild", ["id"])
-# FakeVC = namedtuple("FakeVC", ["guild", "id", "name"])
-
-# async def main():
-#     mongo = MongoHandler()
-#     await mongo.connect(db_name="dc_uba_bot", collection_name="vcs_config")
-
-#     test_guild = FakeGuild(id=123)
-#     test_vc = FakeVC(guild=test_guild, id=456, name="test")
-
-#     await mongo.add_vc(test_vc)
-#     print("Canal agregado.")
-
-#     await asyncio.sleep(5)
-
-#     await mongo.remove_vc(test_vc)
-#     print("Canal eliminado.")
-
-# asyncio.run(main())
+    
