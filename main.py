@@ -1,14 +1,11 @@
-# DISCORD IMPORTS
+import os
+from pathlib import Path
+
+import aiohttp
 import discord
 from discord.ext import commands
-
-# AIOHTTP
-import aiohttp
-
-# OS AND PATHLIB IMPORTS
-import os
 from dotenv import load_dotenv
-from pathlib import Path
+
 
 class client(commands.Bot):
     def __init__(self):
@@ -22,7 +19,7 @@ class client(commands.Bot):
 
     async def setup_hook(self) -> None:
         self.session = aiohttp.ClientSession()
-
+ 
         target_dir = Path.cwd() / "cogs"
 
         for cog in target_dir.rglob("*.py"):

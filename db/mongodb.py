@@ -1,17 +1,12 @@
-# DISCORD IMPORTS
-import discord
-
-# MONGODB IMPORTS
+import asyncio
+import os
+from collections import namedtuple
 from typing import Literal
+
+import discord
 import motor.motor_asyncio
 from pymongo.write_concern import WriteConcern
-from collections import namedtuple
 
-# ASYNC IMPORTS
-import asyncio
-
-# OS IMPORTS
-import os
 
 class MongoHandler:
     def __init__(self):
