@@ -1,9 +1,12 @@
 import os
 from typing import Any
+from collections import namedtuple  # Necesario para los objetos de prueba
+from dotenv import load_dotenv     # Necesario para cargar el .env
 
 import discord
 import motor.motor_asyncio
 from pymongo.results import DeleteResult, UpdateResult
+import asyncio
 
 
 class MongoHandler:
@@ -22,11 +25,17 @@ class MongoHandler:
         self.db = self.client[db_name]
         self.vc_collection = self.db[collection_name]
 
+    async def close(self):
+        """Cierra la conexión con la base de datos."""
+        if self.client:
+            self.client.close()
+            print("Conexión a MongoDB cerrada.")
+
     def _check_connection(self):
         """
         Para asegurarnos que estamos conectados.
         """
-        if not self.vc_collection:
+        if self.vc_collection is None:
             raise ConnectionError("No conectado a la base de datos. Llama a 'connect()' primero.")
 
     def _get_vc_query(self, voice_channel: discord.VoiceChannel) -> dict[str, Any]:
