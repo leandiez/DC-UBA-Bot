@@ -1,7 +1,5 @@
 import os
 from typing import Any
-from collections import namedtuple  # Necesario para los objetos de prueba
-from dotenv import load_dotenv     # Necesario para cargar el .env
 
 import discord
 import motor.motor_asyncio
