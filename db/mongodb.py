@@ -4,7 +4,6 @@ from typing import Any
 import discord
 import motor.motor_asyncio
 from pymongo.results import DeleteResult, UpdateResult
-import asyncio
 
 
 class MongoHandler:
